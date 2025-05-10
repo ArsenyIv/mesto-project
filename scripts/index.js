@@ -1,16 +1,8 @@
-<<<<<<< Updated upstream
-// @todo: Темплейт карточки
-=======
 // DOM-узлы
 const cardsList = document.querySelector(".places__list");                      // Контейнер для карточек
 const cardsTemplate = document.querySelector("#card-template").content;         // Темплейт карточки
->>>>>>> Stashed changes
 
-// @todo: DOM узлы
 
-<<<<<<< Updated upstream
-// @todo: Функция создания карточки
-=======
 const popupList = document.querySelectorAll(".popup");                          // Контейнер для поп-апов
 const popupClose = document.querySelectorAll(".popup__close");                  // Кнопка закрытия поп-апа
 
@@ -39,16 +31,15 @@ function createCard(title, image) {                                             
 
     cardTitle.textContent = title;
     cardImage.src = image;
+    cardImage.alt = title;
 
     const cardDeleteButton = card.querySelector(".card__delete-button");        // Кнопка удаления карточки
     const cardLikeButton = card.querySelector(".card__like-button");            // Кнопка лайка карточки
 
-    cardImage.addEventListener("click", function() {                         // Поп-ап открытия изображения
-        let currentImage = image;
-        let currentCaption = title;
-
-        popupImage.src = currentImage;
-        popupCaption.textContent = currentCaption;
+    cardImage.addEventListener("click", function() {                            // Поп-ап открытия изображения
+        popupImage.src = image;
+        popupImage.alt = title;
+        popupCaption.textContent = title;
         openModal(imagePopup);
     })
 
@@ -128,5 +119,4 @@ cardPopup.addEventListener("submit", handleCardFormSubmit);                // О
 initialCards.forEach((item) => {                                            
     cardsList.append(createCard(item.name, item.link));
 })
->>>>>>> Stashed changes
 
