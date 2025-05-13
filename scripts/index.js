@@ -1,8 +1,6 @@
 // DOM-узлы
 const cardsList = document.querySelector(".places__list");                      // Контейнер для карточек
 const cardsTemplate = document.querySelector("#card-template").content;         // Темплейт карточки
-
-
 const popupList = document.querySelectorAll(".popup");                          // Контейнер для поп-апов
 const popupClose = document.querySelectorAll(".popup__close");                  // Кнопка закрытия поп-апа
 
