@@ -63,11 +63,40 @@ popupList.forEach((popup => {                                               // �
 
 function openModal(popup) {                                                 // Функция открытия поп-апа
     popup.classList.add("popup_is-opened");
+
+    document.addEventListener("keydown", closeByEsc(evt));
 }
 
 function closeModal(popup) {                                                // Функция закрытия поп-апа
     popup.classList.remove("popup_is-opened");
+
+    document.removeEventListener("keydown", closeByEsc(evt));
 }
+
+function closeByEsc(evt) {                                                  // Функция закрытия поп-апа нажатием на Escape
+    if (evt.key === "Escape") {
+        const openedPopup = document.querySelector('.popup_is-opened');
+        closeModal(openedPopup)
+    }
+}
+
+                                        
+popupList.forEach((popup) => {                                              
+    popup.addEventListener("click", function(evt){                          // Функция закрытия поп-апа кликом на оверлей   
+        if (evt.target.classList.contains("popup_is-opened")){
+            closeModal(popup);
+        }
+    })
+    
+    document.addEventListener("keyup", function(evt) {                         // Функция закрытия поп-апа нажатием Escape
+        if(evt.key === "Escape"){
+            closeModal(popup);
+        }
+    })
+})
+                                                
+
+
 
 popupClose.forEach((button) => {                                            // Обработчик каждой кнопки закрытия поп-апов
     button.addEventListener("click", function(evt) {    
@@ -117,4 +146,5 @@ cardPopup.addEventListener("submit", handleCardFormSubmit);                // О
 initialCards.forEach((item) => {                                            
     cardsList.append(createCard(item.name, item.link));
 })
+
 
