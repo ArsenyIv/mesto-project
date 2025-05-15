@@ -1,4 +1,4 @@
-const validationSettings = {
+const validationSettings = {                              // Селекторы элементов валидации
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
